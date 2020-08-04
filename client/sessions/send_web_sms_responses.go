@@ -26,6 +26,8 @@ func (o *SendWebSmsReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
+	case 204:
+		return nil, nil
 
 	default:
 		return nil, runtime.NewAPIError("unknown error", response, response.Code())
